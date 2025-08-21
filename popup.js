@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const rulesList = document.getElementById('rulesList');
 
   loadRules();
+  populateCurrentDomain();
 
   addRuleButton.addEventListener('click', function() {
     const domain = domainInput.value.trim();
@@ -12,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (domain && selector) {
       addRule(domain, selector);
-      domainInput.value = '';
       selectorInput.value = '';
     }
   });
@@ -65,5 +65,31 @@ document.addEventListener('DOMContentLoaded', function() {
         loadRules();
       });
     });
+  }
+
+  function populateCurrentDomain() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+      if (tabs[0] && tabs[0].url) {
+        try {
+          const url = new URL(tabs[0].url);
+          const hostname = url.hostname;
+          
+          if (hostname && !hostname.startsWith('chrome://') && !hostname.startsWith('chrome-extension://')) {
+            const rootDomain = extractRootDomain(hostname);
+            domainInput.value = rootDomain;
+          }
+        } catch (error) {
+          console.log('Could not parse URL:', error);
+        }
+      }
+    });
+  }
+
+  function extractRootDomain(hostname) {
+    const parts = hostname.split('.');
+    if (parts.length <= 2) {
+      return hostname;
+    }
+    return parts.slice(-2).join('.');
   }
 });
