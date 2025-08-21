@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Element Hider</h2>
+    
+    <div class="form-section">
+      <h3>Add Rule</h3>
+      <input type="text" id="domain" placeholder="Domain (e.g., youtube.com)">
+      <input type="text" id="selector" placeholder="CSS Selector (e.g., #secondary)">
+      <button id="addRule">Add Rule</button>
+    </div>
+    
+    <div class="rules-section">
+      <h3>Current Rules</h3>
+      <div id="rulesList"></div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

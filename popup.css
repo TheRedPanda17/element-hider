@@ -1,0 +1,100 @@
+body {
+  width: 350px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 16px;
+}
+
+h2 {
+  margin: 0 0 16px 0;
+  color: #1a73e8;
+  font-size: 18px;
+}
+
+h3 {
+  margin: 16px 0 8px 0;
+  font-size: 14px;
+  color: #5f6368;
+}
+
+.form-section {
+  border-bottom: 1px solid #e8eaed;
+  padding-bottom: 16px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: #1a73e8;
+}
+
+button {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #1557b0;
+}
+
+.rules-section {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.rule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.rule-item:last-child {
+  border-bottom: none;
+}
+
+.rule-info {
+  flex: 1;
+}
+
+.rule-info strong {
+  color: #202124;
+  font-size: 13px;
+}
+
+.rule-info code {
+  background: #f8f9fa;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #5f6368;
+}
+
+.delete-btn {
+  background: #ea4335;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.delete-btn:hover {
+  background: #d33b2c;
+}
