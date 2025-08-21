@@ -3,8 +3,6 @@ function applyHideRules() {
     const rules = result.hideRules || [];
     const currentDomain = window.location.hostname;
     
-    console.log('Element Hider: Applying rules for', currentDomain);
-    console.log('Element Hider: Rules:', rules);
     
     // Only proceed if we have rules for this domain (match with or without www)
     const domainRules = rules.filter(rule => {
@@ -13,7 +11,6 @@ function applyHideRules() {
       return ruleDomain === currentDomainClean || rule.domain === currentDomain;
     });
     if (domainRules.length === 0) {
-      console.log('Element Hider: No rules for this domain, skipping');
       return;
     }
     
@@ -23,12 +20,9 @@ function applyHideRules() {
     });
     
     domainRules.forEach(rule => {
-      console.log('Element Hider: Looking for selector:', rule.selector);
       const elements = document.querySelectorAll(rule.selector);
-      console.log(`Element Hider: Found ${elements.length} elements`);
       
       elements.forEach((element, index) => {
-        console.log(`Element Hider: Hiding element ${index + 1}:`, element);
         element.style.setProperty('display', 'none', 'important');
         element.style.setProperty('visibility', 'hidden', 'important');
         element.style.setProperty('opacity', '0', 'important');
@@ -38,9 +32,6 @@ function applyHideRules() {
         element.setAttribute('data-element-hider', 'hidden');
       });
       
-      if (elements.length === 0) {
-        console.log('Element Hider: No elements found for selector:', rule.selector);
-      }
     });
   });
 }
