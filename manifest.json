@@ -3,13 +3,8 @@
   "name": "Element Hider",
   "version": "1.0",
   "description": "Hide specific HTML elements on websites",
-  "permissions": [
-    "storage",
-    "activeTab"
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
