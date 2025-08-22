@@ -2,6 +2,10 @@
 
 A Chrome extension that allows you to hide specific HTML elements on websites using CSS selectors.
 
+## Demo
+
+![Element Hider Demo](demo.gif)
+
 ## How to Use
 
 ### Installation
